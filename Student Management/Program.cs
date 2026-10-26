@@ -1,11 +1,23 @@
-﻿Console.WriteLine("================================");
+﻿using System;
+
+Console.WriteLine("================================");
 Console.WriteLine("   STUDENT MANAGEMENT SYSTEM");
 Console.WriteLine("================================");
 
-Console.WriteLine("1. Add Student");
-Console.WriteLine("2. View Students");
-Console.WriteLine("3. Search Student");
-Console.WriteLine("4. Exit");
+Console.Write("Enter student name: ");
+string name = Console.ReadLine() ?? "";
 
-Console.WriteLine("================================");
-Console.Write("Enter your choice: ");
+Console.Write("Enter student age: ");
+string ageInput = Console.ReadLine() ?? "";
+
+if (int.TryParse(ageInput, out int age) && age > 0)
+{
+    Console.WriteLine("\nStudent Registered Successfully!");
+    Console.WriteLine("-------------------------------");
+    Console.WriteLine($"Student Name: {name}");
+    Console.WriteLine($"Student Age: {age}");
+}
+else
+{
+    Console.WriteLine("Invalid age. Please enter a positive number.");
+}
